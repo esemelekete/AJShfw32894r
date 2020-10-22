@@ -10,16 +10,7 @@ class Ts extends Admin_Controller {
 
 	public function create()
 	{
-		$this->form_validation->set_rules('jenis_program', 'Jenis Program', 'required');
-		$this->form_validation->set_rules('peringkat_akreditasi', 'Peringkat Akreditas', 'required');
-		$this->form_validation->set_rules('no_sk_ban_pt', 'No. SK BAN-PT', 'required');
-		$this->form_validation->set_rules('tgl_kadaluarsa_sk_ban_pt', 'Tanggal Kadaluarsa SK BAN-PT', 'required');
-		$this->form_validation->set_rules('unit_pengelola', 'Unit Pengelola', 'required');
-		$this->form_validation->set_rules('alamat', 'Alamat', 'required');
-		$this->form_validation->set_rules('telepon', 'Telepon', 'required');
-		$this->form_validation->set_rules('email', 'Email', 'required|valid_email');
-		$this->form_validation->set_rules('website', 'Website', 'required');
-		$this->form_validation->set_rules('ts', 'Tahun Akademik', 'required|regex_match[/^[0-9]{4}\/[0-9]{4}$/]');
+		$this->_validation_rules();
 
 		if ($ts_input = $this->input->post('ts'))
 		{
@@ -29,7 +20,10 @@ class Ts extends Admin_Controller {
 			{
 				$this->form_validation->set_rules('ts_ngaco', 'Tahun Akademik', 'regex_match[/^[0-9]{100}\/[0-9]{4}$/]');
 
-				return $this->_validate();
+				if ( ! $this->form_validation->run())
+				{
+					return view('ts-create.tpl');
+				}
 			}
 	
 			if ($this->db
@@ -40,7 +34,10 @@ class Ts extends Admin_Controller {
 			{
 				$this->form_validation->set_rules('ts_unik', 'Tahun Akademik', 'is_unique[users.id]');
 
-				return $this->_validate();
+				if ( ! $this->form_validation->run())
+				{
+					return view('ts-create.tpl');
+				}
 			}
 		}
 
@@ -62,18 +59,18 @@ class Ts extends Admin_Controller {
 		$this->db->insert(
 			'identitas',
 			[
-				'id_ts' => $this->db->insert_id(),
-				'program_studi' => 'Pendidikan Luar Sekolah',
-				'jenis_program' => $this->input->post('jenis_program'),
-				'peringkat_akreditasi' => $this->input->post('peringkat_akreditasi'),
-				'no_sk_ban_pt' => $this->input->post('no_sk_ban_pt'),
+				'id_ts'                    => $this->db->insert_id(),
+				'program_studi'            => 'Pendidikan Luar Sekolah',
+				'jenis_program'            => $this->input->post('jenis_program'),
+				'peringkat_akreditasi'     => $this->input->post('peringkat_akreditasi'),
+				'no_sk_ban_pt'             => $this->input->post('no_sk_ban_pt'),
 				'tgl_kadaluarsa_sk_ban_pt' => $this->input->post('tgl_kadaluarsa_sk_ban_pt'),
-				'unit_pengelola' => $this->input->post('unit_pengelola'),
-				'perguruan_tinggi' => $this->input->post('perguruan_tinggi'),
-				'alamat' => $this->input->post('alamat'),
-				'telepon' => $this->input->post('telepon'),
-				'email' => $this->input->post('email'),
-				'website' => $this->input->post('website'),
+				'unit_pengelola'           => $this->input->post('unit_pengelola'),
+				'perguruan_tinggi'         => $this->input->post('perguruan_tinggi'),
+				'alamat'                   => $this->input->post('alamat'),
+				'telepon'                  => $this->input->post('telepon'),
+				'email'                    => $this->input->post('email'),
+				'website'                  => $this->input->post('website'),
 			]
 		);
 
@@ -85,14 +82,6 @@ class Ts extends Admin_Controller {
 		return redirect('/ts');
 	}
 
-	private function _validate()
-	{
-		if ( ! $this->form_validation->run())
-		{
-			return view('ts-create.tpl');
-		}
-	}
-
 	public function edit($id = NULL)
 	{
 		if ($id === NULL)
@@ -100,12 +89,89 @@ class Ts extends Admin_Controller {
 			return show_404();
 		}
 
-		//TODO
 		$identitas = $this->db
-			->where(compact('id'))
+			->where('identitas.id', $id)
 			->join('ts', 'ts.id = identitas.id_ts')
 			->get('identitas')
 			->row();
+
+		if ( ! $identitas)
+		{
+			return show_404();
+		}
+
+		$this->_validation_rules();
+
+		if ($ts_input = $this->input->post('ts'))
+		{
+			$ts = explode('/', $ts_input);
+				
+			if (count($ts) !== 2 || intval($ts[0]) + 1 !== intval($ts[1]))
+			{
+				$this->form_validation->set_rules('ts_ngaco', 'Tahun Akademik', 'regex_match[/^[0-9]{100}\/[0-9]{4}$/]');
+
+				if ( ! $this->form_validation->run())
+				{
+					return $this->_edit_view($identitas);
+				}
+			}
+	
+			if ($this->db
+				->from('ts')
+				->where('id !=', $identitas->id_ts)
+				->where('ta_1', $ts[0])
+				->where('ta_2', $ts[1])
+				->count_all_results() !== 0)
+			{
+				$this->form_validation->set_rules('ts_unik', 'Tahun Akademik', 'is_unique[users.id]');
+
+				if ( ! $this->form_validation->run())
+				{
+					return $this->_edit_view($identitas);
+				}
+			}
+		}
+
+		if ( ! $this->form_validation->run())
+		{
+			return $this->_edit_view($identitas);
+		}
+
+		# INPUT IS VALID -------------------------------------------------------
+
+		$this->db->update(
+			'ts',
+			[
+				'ta_1' => $ts[0],
+				'ta_2' => $ts[1]
+			],
+			['id', $identitas->id_ts]
+		);
+
+		$this->db->update(
+			'identitas',
+			[
+				'program_studi'            => 'Pendidikan Luar Sekolah',
+				'jenis_program'            => $this->input->post('jenis_program'),
+				'peringkat_akreditasi'     => $this->input->post('peringkat_akreditasi'),
+				'no_sk_ban_pt'             => $this->input->post('no_sk_ban_pt'),
+				'tgl_kadaluarsa_sk_ban_pt' => $this->input->post('tgl_kadaluarsa_sk_ban_pt'),
+				'unit_pengelola'           => $this->input->post('unit_pengelola'),
+				'perguruan_tinggi'         => $this->input->post('perguruan_tinggi'),
+				'alamat'                   => $this->input->post('alamat'),
+				'telepon'                  => $this->input->post('telepon'),
+				'email'                    => $this->input->post('email'),
+				'website'                  => $this->input->post('website'),
+			],
+			compact('id')
+		);
+
+		$this->session->set_flashdata('alert', [
+			'type' => 'success',
+			'message' => 'Tahun Akademik berhasil ditambahkan.'
+		]);
+
+		return redirect('/ts');
 	}
 
 	public function delete()
@@ -153,5 +219,26 @@ class Ts extends Admin_Controller {
 		]);
 
 		return redirect('/ts');
+	}
+
+	private function _edit_view($identitas)
+	{
+		$selected_jenis_program = set_value('jenis_program') ?: $identitas->jenis_program;
+	
+		return view('ts-edit.tpl', compact('identitas', 'selected_jenis_program'));
+	}
+
+	private function _validation_rules()
+	{
+		$this->form_validation->set_rules('jenis_program', 'Jenis Program', 'required');
+		$this->form_validation->set_rules('peringkat_akreditasi', 'Peringkat Akreditas', 'required');
+		$this->form_validation->set_rules('no_sk_ban_pt', 'No. SK BAN-PT', 'required');
+		$this->form_validation->set_rules('tgl_kadaluarsa_sk_ban_pt', 'Tanggal Kadaluarsa SK BAN-PT', 'required');
+		$this->form_validation->set_rules('unit_pengelola', 'Unit Pengelola', 'required');
+		$this->form_validation->set_rules('alamat', 'Alamat', 'required');
+		$this->form_validation->set_rules('telepon', 'Telepon', 'required');
+		$this->form_validation->set_rules('email', 'Email', 'required|valid_email');
+		$this->form_validation->set_rules('website', 'Website', 'required');
+		$this->form_validation->set_rules('ts', 'Tahun Akademik', 'required|regex_match[/^[0-9]{4}\/[0-9]{4}$/]');
 	}
 }

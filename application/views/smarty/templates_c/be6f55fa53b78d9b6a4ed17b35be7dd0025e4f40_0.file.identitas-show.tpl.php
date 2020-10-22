@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.36, created on 2020-10-22 14:24:05
+/* Smarty version 3.1.36, created on 2020-10-22 17:51:16
   from 'C:\Users\saari\Codes\repo\application\views\smarty\templates\identitas-show.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.36',
-  'unifunc' => 'content_5f9179e59c0672_03073522',
+  'unifunc' => 'content_5f91aa741cb365_86628906',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'be6f55fa53b78d9b6a4ed17b35be7dd0025e4f40' => 
     array (
       0 => 'C:\\Users\\saari\\Codes\\repo\\application\\views\\smarty\\templates\\identitas-show.tpl',
-      1 => 1603369444,
+      1 => 1603381875,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_5f9179e59c0672_03073522 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5f91aa741cb365_86628906 (Smarty_Internal_Template $_smarty_tpl) {
 $_smarty_tpl->_loadInheritance();
 $_smarty_tpl->inheritance->init($_smarty_tpl, true);
 ?>
@@ -29,18 +29,18 @@ $_smarty_tpl->inheritance->init($_smarty_tpl, true);
 <?php $_smarty_tpl->_assignInScope('title', "TS ".((string)$_smarty_tpl->tpl_vars['identitas']->value->ta_1)."/".((string)$_smarty_tpl->tpl_vars['identitas']->value->ta_2));?>
 
 <?php 
-$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_13140625795f9179e59b4bc0_51266131', 'admin_content');
+$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_20154334525f91aa741c3264_39441986', 'admin_content');
 ?>
 
 <?php $_smarty_tpl->inheritance->endChild($_smarty_tpl, "layouts/dashboard.tpl");
 }
 /* {block 'admin_content'} */
-class Block_13140625795f9179e59b4bc0_51266131 extends Smarty_Internal_Block
+class Block_20154334525f91aa741c3264_39441986 extends Smarty_Internal_Block
 {
 public $subBlocks = array (
   'admin_content' => 
   array (
-    0 => 'Block_13140625795f9179e59b4bc0_51266131',
+    0 => 'Block_20154334525f91aa741c3264_39441986',
   ),
 );
 public function callBlock(Smarty_Internal_Template $_smarty_tpl) {
@@ -128,7 +128,7 @@ public function callBlock(Smarty_Internal_Template $_smarty_tpl) {
 					<div class="form-group">
 						<label for="alamat">Alamat</label>
 						<div class="text-body">
-							<strong><?php echo xss_clean($_smarty_tpl->tpl_vars['identitas']->value->alamat);?>
+							<strong><?php echo xss_clean(nl2br($_smarty_tpl->tpl_vars['identitas']->value->alamat));?>
 </strong>
 						</div>
 					</div>
@@ -161,6 +161,15 @@ public function callBlock(Smarty_Internal_Template $_smarty_tpl) {
 							</div>
 						</div>
 					</div>
+					<a href="/ts/edit/<?php echo $_smarty_tpl->tpl_vars['identitas']->value->id;?>
+" class="btn btn-primary btn-icon-split">
+						<div class="icon text-white-50">
+							<i class="fas fa-pencil-alt"></i>
+						</div>
+						<div class="text">
+							Edit
+						</div>
+					</a>
 				</div>
 			</div>
 		</div>

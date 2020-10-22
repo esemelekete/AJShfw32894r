@@ -78,7 +78,7 @@
 					<div class="form-group">
 						<label for="alamat">Alamat</label>
 						<div class="text-body">
-							<strong>{xss_clean($identitas->alamat)}</strong>
+							<strong>{xss_clean(nl2br($identitas->alamat))}</strong>
 						</div>
 					</div>
 					<div class="row">
@@ -107,6 +107,14 @@
 							</div>
 						</div>
 					</div>
+					<a href="/ts/edit/{$identitas->id}" class="btn btn-primary btn-icon-split">
+						<div class="icon text-white-50">
+							<i class="fas fa-pencil-alt"></i>
+						</div>
+						<div class="text">
+							Edit
+						</div>
+					</a>
 				</div>
 			</div>
 		</div>
