@@ -65,7 +65,7 @@
 								</div>
 								<div class="form-group">
 									<label for="nama">Nama Dokumen</label>
-									<input type="text" name="nama" class="form-control {if form_error('nama')}is-invalid{/if}" value="{set_value('nama')|default:xss_clean($dokumen->nama)}">
+									<input type="text" name="nama" class="form-control {if form_error('nama')}is-invalid{/if}" value="{set_value('nama')|default:xss_clean($dokumen->nama)}" autocomplete="off">
 									{if form_error('nama')}
 										<small class="text-danger">{form_error('nama')}</small>
 									{/if}

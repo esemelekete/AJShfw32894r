@@ -39,7 +39,7 @@
 							<div class="col-md-3">
 								<div class="form-group">
 									<label for="peringkat_akreditasi">Peringkat Akreditasi</label>
-									<input type="text" name="peringkat_akreditasi" value="{set_value('peringkat_akreditasi')|default:$identitas->peringkat_akreditasi}" class="form-control {if form_error('peringkat_akreditasi')}is-invalid{/if}" placeholder="Contoh: A, B, C">
+									<input type="text" name="peringkat_akreditasi" value="{set_value('peringkat_akreditasi')|default:$identitas->peringkat_akreditasi}" class="form-control {if form_error('peringkat_akreditasi')}is-invalid{/if}" placeholder="Contoh: A, B, C" autocomplete="off">
 									{if form_error('peringkat_akreditasi')}
 										<small class="text-danger">
 											{form_error('peringkat_akreditasi')}
@@ -52,7 +52,7 @@
 							<div class="col-md-6">
 								<div class="form-group">
 									<label for="no_sk_ban_pt">No. SK BAN-PT</label>
-									<input type="text" name="no_sk_ban_pt" value="{set_value('no_sk_ban_pt')|default:$identitas->no_sk_ban_pt}" class="form-control {if form_error('no_sk_ban_pt')}is-invalid{/if}">
+									<input type="text" name="no_sk_ban_pt" value="{set_value('no_sk_ban_pt')|default:$identitas->no_sk_ban_pt}" class="form-control {if form_error('no_sk_ban_pt')}is-invalid{/if}" autocomplete="off">
 									{if form_error('no_sk_ban_pt')}
 										<small class="text-danger">
 											{form_error('no_sk_ban_pt')}
@@ -143,7 +143,7 @@
 						<div class="form-group">
 							<label for="ts">Tahun Akademik</label>
 							<div class="clearfix"></div>
-								<input type="text" name="ts" id="ts" value="{set_value('ts')|default:$identitas->ta_1}/{$identitas->ta_2}" class="form-control d-inline-block {if form_error('ts') || form_error('ts_ngaco') || form_error('ts_unik')}is-invalid{/if}" style="width: unset">
+								<input type="text" name="ts" id="ts" value="{set_value('ts')|default:$identitas->ta_1}/{$identitas->ta_2}" class="form-control d-inline-block {if form_error('ts') || form_error('ts_ngaco') || form_error('ts_unik')}is-invalid{/if}" style="width: unset" autocomplete="off">
 							<div class="clearfix"></div>
 							<small class="text-muted">Contoh: 2020/2021</small>
 							{if form_error('ts') || form_error('ts_unik') || form_error('ts_ngaco')}

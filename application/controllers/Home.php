@@ -4,7 +4,7 @@ class Home extends Auth_Controller {
 	public function index()
 	{
 		if ( ! $this->ion_auth->is_admin()) {
-			return redirect('/identitas');
+			return redirect('/dokumen');
 		}
 
 		$counts = $this->db

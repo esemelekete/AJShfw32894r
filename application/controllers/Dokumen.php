@@ -271,7 +271,7 @@ class Dokumen extends Auth_Controller {
 				'message' => 'Identitas berhasil dihapus'
 			]);
 	
-			return redirect('/identitas');	
+			return redirect('/ts');	
 		}
 		else
 		{

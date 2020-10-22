@@ -17,7 +17,7 @@
 							<div class="col-md-3">
 								<div class="form-group">
 									<label for="first_name">Nama Depan</label>
-									<input type="text" name="first_name" value="{set_value('first_name')}" class="form-control {if form_error('first_name')}is-invalid{/if}">
+									<input type="text" name="first_name" value="{set_value('first_name')}" class="form-control {if form_error('first_name')}is-invalid{/if}" autocomplete="off">
 									{if form_error('first_name')}
 										<small class="text-danger">{form_error('first_name')}</small>
 									{/if}
@@ -26,7 +26,7 @@
 							<div class="col-md-3">
 								<div class="form-group">
 									<label for="last_name">Nama Belakang</label>
-									<input type="text" name="last_name" value="{set_value('last_name')}" class="form-control {if form_error('last_name')}is-invalid{/if}">
+									<input type="text" name="last_name" value="{set_value('last_name')}" class="form-control {if form_error('last_name')}is-invalid{/if}" autocomplete="off">
 									{if form_error('last_name')}
 										<small class="text-danger">{form_error('last_name')}</small>
 									{/if}
@@ -35,7 +35,7 @@
 							<div class="col-md-3">
 								<div class="form-group">
 									<label for="phone">No. Telepon</label>
-									<input type="text" name="phone" value="{set_value('phone')}" class="form-control {if form_error('phone')}is-invalid{/if}">
+									<input type="text" name="phone" value="{set_value('phone')}" class="form-control {if form_error('phone')}is-invalid{/if}" autocomplete="off">
 									{if form_error('phone')}
 										<small class="text-danger">{form_error('phone')}</small>
 									{/if}
@@ -66,7 +66,7 @@
 							<div class="col-md-4">
 								<div class="form-group">
 									<label for="email">Email</label>
-									<input type="text" name="email" value="{set_value('email')}" class="form-control {if form_error('email')}is-invalid{/if}">
+									<input type="text" name="email" value="{set_value('email')}" class="form-control {if form_error('email')}is-invalid{/if}" autocomplete="off">
 									{if form_error('email')}
 										<small class="text-danger">{form_error('email')}</small>
 									{/if}
