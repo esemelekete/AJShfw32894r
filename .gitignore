@@ -34,5 +34,9 @@ user_guide_src/cilexer/pycilexer.egg-info/*
 .env
 vendor
 node_modules
+
 application/views/smarty/templates_c/*
 !application/views/smarty/templates_c/index.html
+
+public/storage/dokumen/*
+!public/storage/dokumen/index.html
