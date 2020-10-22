@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.36, created on 2020-10-21 13:55:14
+/* Smarty version 3.1.36, created on 2020-10-22 18:46:59
   from 'C:\Users\saari\Codes\repo\application\views\smarty\templates\users-create.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.36',
-  'unifunc' => 'content_5f9021a27597f3_88303064',
+  'unifunc' => 'content_5f91b783acd156_61796464',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '6315fa88263ca643455de0f405663c9b4e81ffb1' => 
     array (
       0 => 'C:\\Users\\saari\\Codes\\repo\\application\\views\\smarty\\templates\\users-create.tpl',
-      1 => 1603281310,
+      1 => 1603385218,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_5f9021a27597f3_88303064 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5f91b783acd156_61796464 (Smarty_Internal_Template $_smarty_tpl) {
 $_smarty_tpl->_loadInheritance();
 $_smarty_tpl->inheritance->init($_smarty_tpl, true);
 ?>
@@ -29,18 +29,18 @@ $_smarty_tpl->inheritance->init($_smarty_tpl, true);
 <?php $_smarty_tpl->_assignInScope('title', "Tambahkan Pengguna");?>
 
 <?php 
-$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_3330504655f9021a2739c33_28924901', 'admin_content');
+$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_5954488435f91b783a88425_24893373', 'admin_content');
 ?>
 
 <?php $_smarty_tpl->inheritance->endChild($_smarty_tpl, "layouts/dashboard.tpl");
 }
 /* {block 'admin_content'} */
-class Block_3330504655f9021a2739c33_28924901 extends Smarty_Internal_Block
+class Block_5954488435f91b783a88425_24893373 extends Smarty_Internal_Block
 {
 public $subBlocks = array (
   'admin_content' => 
   array (
-    0 => 'Block_3330504655f9021a2739c33_28924901',
+    0 => 'Block_5954488435f91b783a88425_24893373',
   ),
 );
 public function callBlock(Smarty_Internal_Template $_smarty_tpl) {
@@ -155,8 +155,8 @@ $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
 							</div>
 							<div class="col-md-12">
 								<div class="form-group">
-									<label for="id_standar">Kriteria</label>
-									<select name="id_standar" id="id_standar" class="form-control <?php if (form_error('password_confirm')) {?>is-invalid<?php }?>">
+									<label for="id_kriteria">Kriteria</label>
+									<select name="id_kriteria" id="id_kriteria" class="form-control <?php if (form_error('password_confirm')) {?>is-invalid<?php }?>">
 										<option value="" <?php if (empty(set_value('group'))) {?>selected<?php }?> disabled>Pilih kriteria</option>
 										<?php
 $_from = $_smarty_tpl->smarty->ext->_foreach->init($_smarty_tpl, $_smarty_tpl->tpl_vars['this']->value->db->get('kriteria')->result(), 'kriteria');
@@ -165,7 +165,7 @@ if ($_from !== null) foreach ($_from as $_smarty_tpl->tpl_vars['kriteria']->valu
 $_smarty_tpl->tpl_vars['kriteria']->do_else = false;
 ?>
 											<option value="<?php echo $_smarty_tpl->tpl_vars['kriteria']->value->id;?>
-">
+" <?php if (set_value('id_kriteria') === $_smarty_tpl->tpl_vars['kriteria']->value->id) {?>selected<?php }?>>
 												<?php echo $_smarty_tpl->tpl_vars['kriteria']->value->nama;?>
 
 											</option>
@@ -173,8 +173,8 @@ $_smarty_tpl->tpl_vars['kriteria']->do_else = false;
 }
 $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
 									</select>
-									<?php if (form_error('id_standar')) {?>
-										<small class="text-danger"><?php echo form_error('id_standar');?>
+									<?php if (form_error('id_kriteria')) {?>
+										<small class="text-danger"><?php echo form_error('id_kriteria');?>
 </small>
 									<?php }?>
 								</div>
