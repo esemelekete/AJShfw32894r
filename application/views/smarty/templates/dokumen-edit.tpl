@@ -41,7 +41,7 @@
 										{/if}	
 									{else}
 										<div class="text-body">
-											{$kriteria_user}
+											{$kriteria_user->id}. {$kriteria_user->nama}
 										</div>
 									{/if}
 								</div>

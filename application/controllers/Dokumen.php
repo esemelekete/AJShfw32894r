@@ -49,23 +49,35 @@ class Dokumen extends Auth_Controller {
 
 			$dokumen = $this->db
 				->select('users.id, users.first_name, users.last_name, dokumen.id, dokumen.id_kriteria, dokumen.path, kriteria.id as id_kriteria, kriteria.nama as nama_kriteria')
-				->order_by('dokumen.id', 'desc')
+				->from('dokumen')
 				->join('users', 'users.id = dokumen.id_user')
 				->join('kriteria', 'kriteria.id = dokumen.id_kriteria')
+				->order_by('dokumen.id', 'desc')
 				->limit($limit, max(0, ($page - 1) * $limit))
-				->get('dokumen')
+				->get()
 				->result();
 		} else {
 			$title = 'Dokumen Saya';
 
+			$user = $this->ion_auth->user()->row();
+
 			$dokumen = $this->db
-				->select('users.id, users.first_name, users.last_name, dokumen.id, dokumen.id_kriteria, dokumen.path, kriteria.id as id_kriteria, kriteria.nama as nama_kriteria')
-				->order_by('dokumen.id', 'desc')
-				->join('users', 'users.id = dokumen.id_user')
+				->select(
+					'dokumen.id
+					, dokumen.id_kriteria
+					, dokumen.path
+					, users.id
+					, users.first_name
+					, users.last_name
+					, kriteria.id as id_kriteria
+					, kriteria.nama as nama_kriteria')
+				->from('dokumen')
 				->join('kriteria', 'kriteria.id = dokumen.id_kriteria')
-				->where('id_user', $this->ion_auth->user()->row()->id)
+				->join('users', 'users.id = dokumen.id_user')
+				->where('users.id', $user->id)
+				->order_by('dokumen.id', 'desc')
 				->limit($limit, max(0, ($page - 1) * $limit))
-				->get('dokumen')
+				->get()
 				->result();
 		}
 
@@ -100,12 +112,18 @@ class Dokumen extends Auth_Controller {
 			$this->form_validation->set_rules('file', 'Dokumen', 'required');
 		}
 
+		$user = $this->ion_auth->user()->row();
+
 		$kriteria = $this->db->get('kriteria')->result();
 		$ts = $this->db->get('ts')->result();
+		$kriteria_user = $this->db
+			->where('id', $user->id_kriteria)
+			->get('kriteria')
+			->row();
 
 		if ( ! $this->form_validation->run())
 		{
-			return view('dokumen-create.tpl', compact('kriteria', 'ts'));
+			return view('dokumen-create.tpl', compact('kriteria', 'ts', 'kriteria_user'));
 		}
 
 		$config['upload_path']   = './storage/dokumen';
@@ -119,7 +137,7 @@ class Dokumen extends Auth_Controller {
 		{
 			$file_error = $this->upload->display_errors();
 			
-			return view('dokumen-create.tpl', compact('file_error', 'kriteria', 'ts'));
+			return view('dokumen-create.tpl', compact('file_error', 'kriteria', 'ts', 'kriteria_user'));
 		}
 		else
 		{
@@ -183,16 +201,32 @@ class Dokumen extends Auth_Controller {
 			$this->form_validation->set_rules('id_kriteria', 'Kriteria', 'required');
 		}
 
+		$user = $this->ion_auth->user()->row();
+
 		$dokumen = $this->db->where(compact('id'))->get('dokumen')->row();
 		$kriteria = $this->db->get('kriteria')->result();
 		$ts = $this->db->get('ts')->result();
+		$kriteria_user = $this->db
+			->where('id', $user->id_kriteria)
+			->get('kriteria')
+			->row();
 
 		$selected_ts = set_value('id_ts') ?: $dokumen->id_ts;
 		$selected_kriteria = set_value('id_kriteria') ?: $dokumen->id_kriteria;
 
 		if ( ! $this->form_validation->run())
 		{
-			return view('dokumen-edit.tpl', compact('kriteria', 'ts', 'dokumen', 'selected_ts', 'selected_kriteria'));
+			return view(
+				'dokumen-edit.tpl',
+				compact(
+					'kriteria',
+					'ts',
+					'dokumen',
+					'selected_ts',
+					'selected_kriteria',
+					'kriteria_user'
+				)
+			);
 		}
 
 		$user = $this->ion_auth->user()->row();
@@ -224,7 +258,17 @@ class Dokumen extends Auth_Controller {
 			{
 				$file_error = $this->upload->display_errors();
 
-				return view('dokumen-edit.tpl', compact('file_error', 'kriteria', 'ts', 'dokumen', 'selected_ts', 'selected_kriteria'));
+				return view(
+					'dokumen-edit.tpl',
+					compact('file_error',
+						'kriteria',
+						'ts',
+						'dokumen',
+						'selected_ts',
+						'selected_kriteria',
+						'kriteria_user'
+					)
+				);
 			}
 			else
 			{
