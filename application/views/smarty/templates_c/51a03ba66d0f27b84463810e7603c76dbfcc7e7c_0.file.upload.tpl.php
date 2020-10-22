@@ -226,15 +226,15 @@ public function callBlock(Smarty_Internal_Template $_smarty_tpl) {
 						<hr>
 						<fieldset>
 							<legend class="text-primary">
-								<strong>Dokumen Standar</strong>
+								<strong>Dokumen Kriteria</strong>
 							</legend>
 							<div class="form-group">
-								<label for="id_standar">Standar</label>
+								<label for="id_standar">Kriteria</label>
 								<?php if ($_smarty_tpl->tpl_vars['this']->value->ion_auth->in_group('admin')) {?>
-									<?php $_smarty_tpl->_assignInScope('standar', $_smarty_tpl->tpl_vars['this']->value->db->get('standar')->result());?>
+									<?php $_smarty_tpl->_assignInScope('kriteria', $_smarty_tpl->tpl_vars['this']->value->db->get('kriteria')->result());?>
 									<select name="id_standar" id="id_standar" class="form-control">
 										<?php
-$_from = $_smarty_tpl->smarty->ext->_foreach->init($_smarty_tpl, $_smarty_tpl->tpl_vars['standar']->value, 's');
+$_from = $_smarty_tpl->smarty->ext->_foreach->init($_smarty_tpl, $_smarty_tpl->tpl_vars['kriteria']->value, 's');
 $_smarty_tpl->tpl_vars['s']->do_else = true;
 if ($_from !== null) foreach ($_from as $_smarty_tpl->tpl_vars['s']->value) {
 $_smarty_tpl->tpl_vars['s']->do_else = false;
@@ -259,7 +259,7 @@ $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
 									<?php }?>
 								<?php } else { ?>
 									<div class="text-body">
-										<?php echo $_smarty_tpl->tpl_vars['this']->value->db->where('id',$_smarty_tpl->tpl_vars['this']->value->ion_auth->user()->row()->id_standar)->get('standar')->row()->nama;?>
+										<?php echo $_smarty_tpl->tpl_vars['this']->value->db->where('id',$_smarty_tpl->tpl_vars['this']->value->ion_auth->user()->row()->id_standar)->get('kriteria')->row()->nama;?>
 
 									</div>
 								<?php }?>

@@ -1,6 +1,6 @@
 <?php
 /* Smarty version 3.1.36, created on 2020-10-21 11:48:33
-  from 'C:\Users\saari\Codes\repo\application\views\smarty\templates\usulan-edit.tpl' */
+  from 'C:\Users\saari\Codes\repo\application\views\smarty\templates\identitas-edit.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
@@ -11,7 +11,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
     'bf10456d0c9f0a3f3ebb24a54f1d83c3ff7da453' => 
     array (
-      0 => 'C:\\Users\\saari\\Codes\\repo\\application\\views\\smarty\\templates\\usulan-edit.tpl',
+      0 => 'C:\\Users\\saari\\Codes\\repo\\application\\views\\smarty\\templates\\identitas-edit.tpl',
       1 => 1603273709,
       2 => 'file',
     ),
@@ -86,7 +86,7 @@ public function callBlock(Smarty_Internal_Template $_smarty_tpl) {
 								<div class="col-md-3">
 									<div class="form-group">
 										<label for="peringkat_akreditasi">Peringkat Akreditasi</label>
-										<input type="text" name="peringkat_akreditasi" value="<?php echo (($tmp = @set_value('peringkat_akreditasi'))===null||$tmp==='' ? xss_clean($_smarty_tpl->tpl_vars['usulan']->value->peringkat_akreditasi) : $tmp);?>
+										<input type="text" name="peringkat_akreditasi" value="<?php echo (($tmp = @set_value('peringkat_akreditasi'))===null||$tmp==='' ? xss_clean($_smarty_tpl->tpl_vars['identitas']->value->peringkat_akreditasi) : $tmp);?>
 " class="form-control <?php if (form_error('peringkat_akreditasi')) {?>is-invalid<?php }?>" placeholder="Contoh: A, B, C">
 										<?php if (form_error('peringkat_akreditasi')) {?>
 											<small class="text-danger">
@@ -101,7 +101,7 @@ public function callBlock(Smarty_Internal_Template $_smarty_tpl) {
 								<div class="col-md-6">
 									<div class="form-group">
 										<label for="no_sk_ban_pt">No. SK BAN-PT</label>
-										<input type="text" name="no_sk_ban_pt" value="<?php echo (($tmp = @set_value('no_sk_ban_pt'))===null||$tmp==='' ? xss_clean($_smarty_tpl->tpl_vars['usulan']->value->no_sk_ban_pt) : $tmp);?>
+										<input type="text" name="no_sk_ban_pt" value="<?php echo (($tmp = @set_value('no_sk_ban_pt'))===null||$tmp==='' ? xss_clean($_smarty_tpl->tpl_vars['identitas']->value->no_sk_ban_pt) : $tmp);?>
 " class="form-control <?php if (form_error('no_sk_ban_pt')) {?>is-invalid<?php }?>">
 										<?php if (form_error('no_sk_ban_pt')) {?>
 											<small class="text-danger">
@@ -114,7 +114,7 @@ public function callBlock(Smarty_Internal_Template $_smarty_tpl) {
 								<div class="col-md-6">
 									<div class="form-group">
 										<label for="tgl_kadaluarsa_sk_ban_pt">Tanggal Kadaluarsa SK BAN-PT</label>
-										<input type="date" name="tgl_kadaluarsa_sk_ban_pt" value="<?php echo (($tmp = @set_value('tgl_kadaluarsa_sk_ban_pt'))===null||$tmp==='' ? xss_clean($_smarty_tpl->tpl_vars['usulan']->value->tgl_kadaluarsa_sk_ban_pt) : $tmp);?>
+										<input type="date" name="tgl_kadaluarsa_sk_ban_pt" value="<?php echo (($tmp = @set_value('tgl_kadaluarsa_sk_ban_pt'))===null||$tmp==='' ? xss_clean($_smarty_tpl->tpl_vars['identitas']->value->tgl_kadaluarsa_sk_ban_pt) : $tmp);?>
 " class="form-control <?php if (form_error('tgl_kadaluarsa_sk_ban_pt')) {?>is-invalid<?php }?>">
 										<?php if (form_error('tgl_kadaluarsa_sk_ban_pt')) {?>
 											<small class="text-danger">
@@ -129,7 +129,7 @@ public function callBlock(Smarty_Internal_Template $_smarty_tpl) {
 								<div class="col-md-6">
 									<div class="form-group">
 										<label for="unit_pengelola">Unit Pengelola</label>
-										<input type="text" name="unit_pengelola" value="<?php echo (($tmp = @set_value('unit_pengelola'))===null||$tmp==='' ? xss_clean($_smarty_tpl->tpl_vars['usulan']->value->unit_pengelola) : $tmp);?>
+										<input type="text" name="unit_pengelola" value="<?php echo (($tmp = @set_value('unit_pengelola'))===null||$tmp==='' ? xss_clean($_smarty_tpl->tpl_vars['identitas']->value->unit_pengelola) : $tmp);?>
 " class="form-control <?php if (form_error('unit_pengelola')) {?>is-invalid<?php }?>">
 										<?php if (form_error('unit_pengelola')) {?>
 											<small class="text-danger">
@@ -154,7 +154,7 @@ public function callBlock(Smarty_Internal_Template $_smarty_tpl) {
 							</div>
 							<div class="form-group">
 								<label for="alamat">Alamat</label>
-								<textarea name="alamat" class="form-control <?php if (form_error('alamat')) {?>is-invalid<?php }?>"><?php echo (($tmp = @set_value('alamat'))===null||$tmp==='' ? xss_clean($_smarty_tpl->tpl_vars['usulan']->value->alamat) : $tmp);?>
+								<textarea name="alamat" class="form-control <?php if (form_error('alamat')) {?>is-invalid<?php }?>"><?php echo (($tmp = @set_value('alamat'))===null||$tmp==='' ? xss_clean($_smarty_tpl->tpl_vars['identitas']->value->alamat) : $tmp);?>
 </textarea>
 								<?php if (form_error('alamat')) {?>
 									<small class="text-danger">
@@ -167,7 +167,7 @@ public function callBlock(Smarty_Internal_Template $_smarty_tpl) {
 								<div class="col-md-4">
 									<div class="form-group">
 										<label for="telepon">Telepon</label>
-										<input type="text" name="telepon" value="<?php echo (($tmp = @set_value('telepon'))===null||$tmp==='' ? xss_clean($_smarty_tpl->tpl_vars['usulan']->value->telepon) : $tmp);?>
+										<input type="text" name="telepon" value="<?php echo (($tmp = @set_value('telepon'))===null||$tmp==='' ? xss_clean($_smarty_tpl->tpl_vars['identitas']->value->telepon) : $tmp);?>
 " class="form-control <?php if (form_error('telepon')) {?>is-invalid<?php }?>">
 										<?php if (form_error('telepon')) {?>
 											<small class="text-danger">
@@ -180,7 +180,7 @@ public function callBlock(Smarty_Internal_Template $_smarty_tpl) {
 								<div class="col-md-4">
 									<div class="form-group">
 										<label for="email">Email</label>
-										<input type="text" name="email" value="<?php echo (($tmp = @set_value('email'))===null||$tmp==='' ? xss_clean($_smarty_tpl->tpl_vars['usulan']->value->email) : $tmp);?>
+										<input type="text" name="email" value="<?php echo (($tmp = @set_value('email'))===null||$tmp==='' ? xss_clean($_smarty_tpl->tpl_vars['identitas']->value->email) : $tmp);?>
 " class="form-control <?php if (form_error('email')) {?>is-invalid<?php }?>">
 										<?php if (form_error('email')) {?>
 											<small class="text-danger">
@@ -193,7 +193,7 @@ public function callBlock(Smarty_Internal_Template $_smarty_tpl) {
 								<div class="col-md-4">
 									<div class="form-group">
 										<label for="website">Website</label>
-										<input type="text" name="website" value="<?php echo (($tmp = @set_value('website'))===null||$tmp==='' ? xss_clean($_smarty_tpl->tpl_vars['usulan']->value->website) : $tmp);?>
+										<input type="text" name="website" value="<?php echo (($tmp = @set_value('website'))===null||$tmp==='' ? xss_clean($_smarty_tpl->tpl_vars['identitas']->value->website) : $tmp);?>
 " class="form-control <?php if (form_error('website')) {?>is-invalid<?php }?>">
 										<?php if (form_error('website')) {?>
 											<small class="text-danger">
@@ -207,10 +207,10 @@ public function callBlock(Smarty_Internal_Template $_smarty_tpl) {
 							<div class="form-group">
 								Tahun Ajaran
 								<div class="ts mt-2">
-									<input type="text" name="ts_1" value="<?php echo (($tmp = @set_value('ts_1'))===null||$tmp==='' ? xss_clean($_smarty_tpl->tpl_vars['usulan']->value->ts_1) : $tmp);?>
+									<input type="text" name="ts_1" value="<?php echo (($tmp = @set_value('ts_1'))===null||$tmp==='' ? xss_clean($_smarty_tpl->tpl_vars['identitas']->value->ts_1) : $tmp);?>
 " class="form-control" style="display: inline-block!important; width: 80px!important">
 									/
-									<input type="text" name="ts_2" value="<?php echo (($tmp = @set_value('ts_2'))===null||$tmp==='' ? xss_clean($_smarty_tpl->tpl_vars['usulan']->value->ts_2) : $tmp);?>
+									<input type="text" name="ts_2" value="<?php echo (($tmp = @set_value('ts_2'))===null||$tmp==='' ? xss_clean($_smarty_tpl->tpl_vars['identitas']->value->ts_2) : $tmp);?>
 " class="form-control" style="display: inline-block!important; width: 80px!important">
 									<?php if (form_error('ts_1') || form_error('ts_2')) {?>
 										<small class="text-danger">
@@ -226,15 +226,15 @@ public function callBlock(Smarty_Internal_Template $_smarty_tpl) {
 						<hr>
 						<fieldset>
 							<legend class="text-primary">
-								<strong>Dokumen Standar</strong>
+								<strong>Dokumen Kriteria</strong>
 							</legend>
 							<div class="form-group">
-								<label for="id_standar">Standar</label>
+								<label for="id_standar">Kriteria</label>
 								<?php if ($_smarty_tpl->tpl_vars['this']->value->ion_auth->in_group('admin')) {?>
-									<?php $_smarty_tpl->_assignInScope('standar', $_smarty_tpl->tpl_vars['this']->value->db->get('standar')->result());?>
+									<?php $_smarty_tpl->_assignInScope('kriteria', $_smarty_tpl->tpl_vars['this']->value->db->get('kriteria')->result());?>
 									<select name="id_standar" id="id_standar" class="form-control">
 										<?php
-$_from = $_smarty_tpl->smarty->ext->_foreach->init($_smarty_tpl, $_smarty_tpl->tpl_vars['standar']->value, 's');
+$_from = $_smarty_tpl->smarty->ext->_foreach->init($_smarty_tpl, $_smarty_tpl->tpl_vars['kriteria']->value, 's');
 $_smarty_tpl->tpl_vars['s']->do_else = true;
 if ($_from !== null) foreach ($_from as $_smarty_tpl->tpl_vars['s']->value) {
 $_smarty_tpl->tpl_vars['s']->do_else = false;
@@ -259,7 +259,7 @@ $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
 									<?php }?>
 								<?php } else { ?>
 									<div>
-										<?php echo $_smarty_tpl->tpl_vars['this']->value->db->where('id',$_smarty_tpl->tpl_vars['this']->value->ion_auth->user()->row()->id_standar)->get('standar')->row()->nama;?>
+										<?php echo $_smarty_tpl->tpl_vars['this']->value->db->where('id',$_smarty_tpl->tpl_vars['this']->value->ion_auth->user()->row()->id_standar)->get('kriteria')->row()->nama;?>
 
 									</div>
 								<?php }?>
@@ -267,7 +267,7 @@ $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
 							<div class="form-group">
 								<label for="file">Dokumen lama</label>
 								<div>
-									<a href="<?php echo $_smarty_tpl->tpl_vars['usulan']->value->dokumen->path;?>
+									<a href="<?php echo $_smarty_tpl->tpl_vars['identitas']->value->dokumen->path;?>
 " class="btn btn-primary">
 										Unduh
 									</a>
@@ -289,7 +289,7 @@ $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
 							</div>
 							<div class="form-group">
 								<label for="nama">Nama Dokumen</label>
-								<input type="text" name="nama" value="<?php echo (($tmp = @set_value('nama'))===null||$tmp==='' ? xss_clean($_smarty_tpl->tpl_vars['usulan']->value->dokumen->nama) : $tmp);?>
+								<input type="text" name="nama" value="<?php echo (($tmp = @set_value('nama'))===null||$tmp==='' ? xss_clean($_smarty_tpl->tpl_vars['identitas']->value->dokumen->nama) : $tmp);?>
 " class="form-control <?php if (form_error('nama')) {?>is-invalid<?php }?>">
 								<?php if (form_error('nama')) {?>
 									<small class="text-danger">
@@ -300,7 +300,7 @@ $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
 							</div>
 							<div class="form-group">
 								<label for="deskripsi">Deskripsi</label>
-								<textarea name="deskripsi" class="form-control <?php if (form_error('deskripsi')) {?>is-invalid<?php }?>"><?php echo (($tmp = @set_value('deskripsi'))===null||$tmp==='' ? xss_clean($_smarty_tpl->tpl_vars['usulan']->value->dokumen->deskripsi) : $tmp);?>
+								<textarea name="deskripsi" class="form-control <?php if (form_error('deskripsi')) {?>is-invalid<?php }?>"><?php echo (($tmp = @set_value('deskripsi'))===null||$tmp==='' ? xss_clean($_smarty_tpl->tpl_vars['identitas']->value->dokumen->deskripsi) : $tmp);?>
 </textarea>
 								<?php if (form_error('deskripsi')) {?>
 									<small class="text-danger">
@@ -311,7 +311,7 @@ $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
 							</div>
 							<div class="form-group">
 								<label for="lokasi">Lokasi</label>
-								<input type="text" name="lokasi" value="<?php echo (($tmp = @set_value('lokasi'))===null||$tmp==='' ? xss_clean($_smarty_tpl->tpl_vars['usulan']->value->dokumen->lokasi) : $tmp);?>
+								<input type="text" name="lokasi" value="<?php echo (($tmp = @set_value('lokasi'))===null||$tmp==='' ? xss_clean($_smarty_tpl->tpl_vars['identitas']->value->dokumen->lokasi) : $tmp);?>
 " class="form-control <?php if (form_error('lokasi')) {?>is-invalid<?php }?>">
 								<?php if (form_error('lokasi')) {?>
 									<small class="text-danger">
@@ -322,7 +322,7 @@ $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
 							</div>
 							<div class="form-group">
 								<label for="rak">Rak</label>
-								<input type="text" name="rak" value="<?php echo (($tmp = @set_value('rak'))===null||$tmp==='' ? xss_clean($_smarty_tpl->tpl_vars['usulan']->value->dokumen->rak) : $tmp);?>
+								<input type="text" name="rak" value="<?php echo (($tmp = @set_value('rak'))===null||$tmp==='' ? xss_clean($_smarty_tpl->tpl_vars['identitas']->value->dokumen->rak) : $tmp);?>
 " class="form-control <?php if (form_error('rak')) {?>is-invalid<?php }?>">
 								<?php if (form_error('rak')) {?>
 									<small class="text-danger">
@@ -333,7 +333,7 @@ $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
 							</div>
 							<div class="form-group">
 								<label for="koordinator">Koordinator</label>
-								<input type="text" name="koordinator" value="<?php echo (($tmp = @set_value('koordinator'))===null||$tmp==='' ? xss_clean($_smarty_tpl->tpl_vars['usulan']->value->dokumen->koordinator) : $tmp);?>
+								<input type="text" name="koordinator" value="<?php echo (($tmp = @set_value('koordinator'))===null||$tmp==='' ? xss_clean($_smarty_tpl->tpl_vars['identitas']->value->dokumen->koordinator) : $tmp);?>
 " class="form-control <?php if (form_error('koordinator')) {?>is-invalid<?php }?>">
 								<?php if (form_error('koordinator')) {?>
 									<small class="text-danger">

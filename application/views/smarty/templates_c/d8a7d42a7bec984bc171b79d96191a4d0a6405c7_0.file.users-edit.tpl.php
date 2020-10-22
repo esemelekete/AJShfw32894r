@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.36, created on 2020-10-21 14:48:47
+/* Smarty version 3.1.36, created on 2020-10-22 14:25:34
   from 'C:\Users\saari\Codes\repo\application\views\smarty\templates\users-edit.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.36',
-  'unifunc' => 'content_5f902e2fe809f0_27082452',
+  'unifunc' => 'content_5f917a3eb02236_48741358',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'd8a7d42a7bec984bc171b79d96191a4d0a6405c7' => 
     array (
       0 => 'C:\\Users\\saari\\Codes\\repo\\application\\views\\smarty\\templates\\users-edit.tpl',
-      1 => 1603284525,
+      1 => 1603369534,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_5f902e2fe809f0_27082452 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5f917a3eb02236_48741358 (Smarty_Internal_Template $_smarty_tpl) {
 $_smarty_tpl->_loadInheritance();
 $_smarty_tpl->inheritance->init($_smarty_tpl, true);
 ?>
@@ -29,18 +29,18 @@ $_smarty_tpl->inheritance->init($_smarty_tpl, true);
 <?php $_smarty_tpl->_assignInScope('title', "Edit Pengguna");?>
 
 <?php 
-$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_13790523295f902e2fe58c07_17061263', 'admin_content');
+$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_10104975855f917a3eae3bd9_51073252', 'admin_content');
 ?>
 
 <?php $_smarty_tpl->inheritance->endChild($_smarty_tpl, "layouts/dashboard.tpl");
 }
 /* {block 'admin_content'} */
-class Block_13790523295f902e2fe58c07_17061263 extends Smarty_Internal_Block
+class Block_10104975855f917a3eae3bd9_51073252 extends Smarty_Internal_Block
 {
 public $subBlocks = array (
   'admin_content' => 
   array (
-    0 => 'Block_13790523295f902e2fe58c07_17061263',
+    0 => 'Block_10104975855f917a3eae3bd9_51073252',
   ),
 );
 public function callBlock(Smarty_Internal_Template $_smarty_tpl) {
@@ -155,26 +155,26 @@ $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
 							</div>
 							<div class="col-md-12">
 								<div class="form-group">
-									<label for="id_standar">Standar</label>
-									<select name="id_standar" id="id_standar" class="form-control <?php if (form_error('id_standar')) {?>is-invalid<?php }?>">
-										<option value="" <?php if (empty(set_value('group'))) {?>selected<?php }?> disabled>Pilih standar</option>
+									<label for="id_kriteria">Kriteria</label>
+									<select name="id_kriteria" id="id_kriteria" class="form-control <?php if (form_error('id_kriteria')) {?>is-invalid<?php }?>">
+										<option value="" <?php if (empty(set_value('group'))) {?>selected<?php }?> disabled>Pilih kriteria</option>
 										<?php
-$_from = $_smarty_tpl->smarty->ext->_foreach->init($_smarty_tpl, $_smarty_tpl->tpl_vars['this']->value->db->get('standar')->result(), 'standar');
-$_smarty_tpl->tpl_vars['standar']->do_else = true;
-if ($_from !== null) foreach ($_from as $_smarty_tpl->tpl_vars['standar']->value) {
-$_smarty_tpl->tpl_vars['standar']->do_else = false;
+$_from = $_smarty_tpl->smarty->ext->_foreach->init($_smarty_tpl, $_smarty_tpl->tpl_vars['this']->value->db->get('kriteria')->result(), 'kriteria');
+$_smarty_tpl->tpl_vars['kriteria']->do_else = true;
+if ($_from !== null) foreach ($_from as $_smarty_tpl->tpl_vars['kriteria']->value) {
+$_smarty_tpl->tpl_vars['kriteria']->do_else = false;
 ?>
-											<option value="<?php echo $_smarty_tpl->tpl_vars['standar']->value->id;?>
-" <?php if ($_smarty_tpl->tpl_vars['selected_standar']->value === $_smarty_tpl->tpl_vars['standar']->value->id) {?>selected<?php }?>>
-												<?php echo $_smarty_tpl->tpl_vars['standar']->value->nama;?>
+											<option value="<?php echo $_smarty_tpl->tpl_vars['kriteria']->value->id;?>
+" <?php if ($_smarty_tpl->tpl_vars['selected_kriteria']->value === $_smarty_tpl->tpl_vars['kriteria']->value->id) {?>selected<?php }?>>
+												<?php echo $_smarty_tpl->tpl_vars['kriteria']->value->nama;?>
 
 											</option>
 										<?php
 }
 $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
 									</select>
-									<?php if (form_error('id_standar')) {?>
-										<small class="text-danger"><?php echo form_error('id_standar');?>
+									<?php if (form_error('id_kriteria')) {?>
+										<small class="text-danger"><?php echo form_error('id_kriteria');?>
 </small>
 									<?php }?>
 								</div>

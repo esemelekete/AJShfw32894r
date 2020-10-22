@@ -1,11 +1,11 @@
 <?php
 
-class Standar extends Admin_Controller {
+class Kriteria extends Admin_Controller {
 	public function index()
 	{
-		$standar = $this->db->get('standar')->result();
+		$kriteria = $this->db->get('kriteria')->result();
 
-		return view('standar.tpl', compact('standar'));
+		return view('kriteria.tpl', compact('kriteria'));
 	}
 
 	public function edit($id)
@@ -13,7 +13,7 @@ class Standar extends Admin_Controller {
 		if ($this->input->method() === 'post')
 		{
 			$this->db->update(
-				'standar',
+				'kriteria',
 				['nama' => $this->input->post('nama')],
 				compact('id')
 			);
@@ -22,18 +22,18 @@ class Standar extends Admin_Controller {
 			{
 				$this->session->set_flashdata('alert', [
 					'type' => 'success',
-					'message' => 'Nama standar berhasil diubah'
+					'message' => 'Nama kriteria berhasil diubah'
 				]);
 			}
 			else
 			{
 				$this->session->set_flashdata('alert', [
 					'type' => 'danger',
-					'message' => 'Nama standar gagal diubah'
+					'message' => 'Nama kriteria gagal diubah'
 				]);
 			}
 
-			return redirect('/standar');
+			return redirect('/kriteria');
 		}
 		else
 		{

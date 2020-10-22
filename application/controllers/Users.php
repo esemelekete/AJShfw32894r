@@ -50,7 +50,7 @@ class Users extends Admin_Controller {
 		$this->form_validation->set_rules('password', 'Password', 'required');
 		$this->form_validation->set_rules('password_confirm', 'Konfirmasi Password', 'required|matches[password]');
 		$this->form_validation->set_rules('group', 'Hak Akses', 'required');
-		$this->form_validation->set_rules('id_standar', 'Standar', 'required');
+		$this->form_validation->set_rules('id_kriteria', 'Kriteria', 'required');
 		
 		if ( ! $this->form_validation->run())
 		{
@@ -66,7 +66,7 @@ class Users extends Admin_Controller {
 				'email' => $this->input->post('email'),
 				'password' => password_hash($this->input->post('password'), PASSWORD_BCRYPT),
 				'active' => 1,
-				'id_standar' => $this->input->post('id_standar'),
+				'id_kriteria' => $this->input->post('id_kriteria'),
 				'phone' => $this->input->post('phone'),
 			]);
 
@@ -107,7 +107,7 @@ class Users extends Admin_Controller {
 
 		$this->form_validation->set_rules('first_name', 'Nama Depan', 'required');
 		$this->form_validation->set_rules('group', 'Hak Akses', 'required');
-		$this->form_validation->set_rules('id_standar', 'Standar', 'required');
+		$this->form_validation->set_rules('id_kriteria', 'Kriteria', 'required');
 
 		$email_rules = 'required|valid_email';
 
@@ -123,7 +123,7 @@ class Users extends Admin_Controller {
 			'last_name' => $this->input->post('last_name'),
 			'email' => $this->input->post('email'),
 			'phone' => $this->input->post('phone'),
-			'id_standar' => $this->input->post('id_standar')
+			'id_kriteria' => $this->input->post('id_kriteria')
 		];
 		
 		if (!empty($this->input->post('password')))
@@ -137,9 +137,9 @@ class Users extends Admin_Controller {
 		if ( ! $this->form_validation->run())
 		{
 			$selected_group = set_value('group') ?: $this->db->where('user_id', $id)->get('users_groups')->row()->group_id;
-			$selected_standar = set_value('id_standar') ?: $user->id_standar;
+			$selected_kriteria = set_value('id_kriteria') ?: $user->id_kriteria;
 
-			return view('users-edit.tpl', compact('user', 'selected_group', 'selected_standar'));
+			return view('users-edit.tpl', compact('user', 'selected_group', 'selected_kriteria'));
 		}
 		else
 		{

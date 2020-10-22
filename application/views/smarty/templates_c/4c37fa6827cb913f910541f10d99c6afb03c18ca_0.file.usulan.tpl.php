@@ -1,6 +1,6 @@
 <?php
 /* Smarty version 3.1.36, created on 2020-10-21 14:18:06
-  from 'C:\Users\saari\Codes\repo\application\views\smarty\templates\usulan.tpl' */
+  from 'C:\Users\saari\Codes\repo\application\views\smarty\templates\identitas.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
@@ -11,7 +11,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
     '4c37fa6827cb913f910541f10d99c6afb03c18ca' => 
     array (
-      0 => 'C:\\Users\\saari\\Codes\\repo\\application\\views\\smarty\\templates\\usulan.tpl',
+      0 => 'C:\\Users\\saari\\Codes\\repo\\application\\views\\smarty\\templates\\identitas.tpl',
       1 => 1603282686,
       2 => 'file',
     ),
@@ -50,9 +50,9 @@ public function callBlock(Smarty_Internal_Template $_smarty_tpl) {
 				<div class="card-header py-3">
 					<h6 class="m-0 font-weight-bold">
 						<?php if ($_smarty_tpl->tpl_vars['is_admin']->value) {?>
-							Semua Usulan
+							Semua Identitas
 						<?php } else { ?>
-							Usulan Saya
+							Identitas Saya
 						<?php }?>
 					</h6>
 				</div>
@@ -100,7 +100,7 @@ $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
 								</select>
 							</div>
 							<div class="form-group mr-3">
-								<label for="id_standar">Standar</label>
+								<label for="id_standar">Kriteria</label>
 								<select name="id_standar" id="id_standar" class="form-control">
 									<option
 										value=""
@@ -109,17 +109,17 @@ $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
 										<?php }?>>
 									</option>
 									<?php
-$_from = $_smarty_tpl->smarty->ext->_foreach->init($_smarty_tpl, $_smarty_tpl->tpl_vars['this']->value->db->get('standar')->result(), 'standar');
-$_smarty_tpl->tpl_vars['standar']->do_else = true;
-if ($_from !== null) foreach ($_from as $_smarty_tpl->tpl_vars['standar']->value) {
-$_smarty_tpl->tpl_vars['standar']->do_else = false;
+$_from = $_smarty_tpl->smarty->ext->_foreach->init($_smarty_tpl, $_smarty_tpl->tpl_vars['this']->value->db->get('kriteria')->result(), 'kriteria');
+$_smarty_tpl->tpl_vars['kriteria']->do_else = true;
+if ($_from !== null) foreach ($_from as $_smarty_tpl->tpl_vars['kriteria']->value) {
+$_smarty_tpl->tpl_vars['kriteria']->do_else = false;
 ?>
 										<option
-											value="<?php echo $_smarty_tpl->tpl_vars['standar']->value->id;?>
+											value="<?php echo $_smarty_tpl->tpl_vars['kriteria']->value->id;?>
 "
-											<?php if ($_smarty_tpl->tpl_vars['this']->value->input->get('id_standar') === $_smarty_tpl->tpl_vars['standar']->value->id) {?>
+											<?php if ($_smarty_tpl->tpl_vars['this']->value->input->get('id_standar') === $_smarty_tpl->tpl_vars['kriteria']->value->id) {?>
 												selected
-											<?php }?>><?php echo $_smarty_tpl->tpl_vars['standar']->value->nama;?>
+											<?php }?>><?php echo $_smarty_tpl->tpl_vars['kriteria']->value->nama;?>
 
 										</option>
 									<?php
@@ -148,7 +148,7 @@ $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
 							<thead>
 								<tr>
 									<th>#</th>
-									<th>Standar</th>
+									<th>Kriteria</th>
 									<th>Pengusul</th>
 									<th>Dokumen</th>
 									<th>Tanggal</th>
@@ -157,7 +157,7 @@ $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
 							</thead>
 							<tbody>
 								<?php
-$_from = $_smarty_tpl->smarty->ext->_foreach->init($_smarty_tpl, $_smarty_tpl->tpl_vars['usulan']->value, 'u');
+$_from = $_smarty_tpl->smarty->ext->_foreach->init($_smarty_tpl, $_smarty_tpl->tpl_vars['identitas']->value, 'u');
 $_smarty_tpl->tpl_vars['u']->do_else = true;
 if ($_from !== null) foreach ($_from as $_smarty_tpl->tpl_vars['u']->value) {
 $_smarty_tpl->tpl_vars['u']->do_else = false;
@@ -165,7 +165,7 @@ $_smarty_tpl->tpl_vars['u']->do_else = false;
 									<tr>
 										<td><?php echo $_smarty_tpl->tpl_vars['u']->value->id;?>
 </td>
-										<td style="white-space: nowrap"><?php echo $_smarty_tpl->tpl_vars['u']->value->standar->nama;?>
+										<td style="white-space: nowrap"><?php echo $_smarty_tpl->tpl_vars['u']->value->kriteria->nama;?>
 </td>
 										<td style="white-space: nowrap"><?php echo $_smarty_tpl->tpl_vars['u']->value->pengusul->first_name;?>
  <?php echo $_smarty_tpl->tpl_vars['u']->value->pengusul->last_name;?>
@@ -179,13 +179,13 @@ $_smarty_tpl->tpl_vars['u']->do_else = false;
 										<td style="white-space: nowrap"><?php echo $_smarty_tpl->tpl_vars['u']->value->tanggal_usulan;?>
 </td>
 										<td style="white-space: nowrap">
-											<a href="/usulan/show/<?php echo $_smarty_tpl->tpl_vars['u']->value->id;?>
+											<a href="/identitas/show/<?php echo $_smarty_tpl->tpl_vars['u']->value->id;?>
 " class="btn btn-sm btn-primary">Lihat</a>
 
 											<a href="/upload/edit/<?php echo $_smarty_tpl->tpl_vars['u']->value->id;?>
 " class="btn btn-sm btn-primary">Edit</a>
 
-											<?php echo form_open('/usulan/delete','class="d-inline"');?>
+											<?php echo form_open('/identitas/delete','class="d-inline"');?>
 
 												<input type="hidden" name="id" value="<?php echo $_smarty_tpl->tpl_vars['u']->value->id;?>
 ">

@@ -9,11 +9,13 @@
 
 		<link rel="shortcut icon" href="/img/favicon.png" type="image/png">
 		<link rel="stylesheet" href="/css/app.css">
+		{block style}{/block}
 	</head>
 
 	<body class="{implode(' ', $body_classes)|default:''}">
 		{block content}{/block}
 	
 		<script src="/js/app.js"></script>
+		{block script}{/block}
 	</body>
 </html>

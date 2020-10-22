@@ -37,7 +37,7 @@ class Upload extends Auth_Controller {
 				}
 
 				$new_usulan = $this->db->insert(
-					'usulan',
+					'identitas',
 					[
 						'id_pengusul'              => $user->id,
 						'id_standar'               => $id_standar,
@@ -72,10 +72,10 @@ class Upload extends Auth_Controller {
 
 				$this->session->set_flashdata('alert', [
 					'type' => 'success',
-					'message' => 'Usulan berhasil diajukan'
+					'message' => 'Identitas berhasil diajukan'
 				]);
 
-				return redirect('/usulan');
+				return redirect('/identitas');
 			}
 		}
 	}
@@ -85,7 +85,7 @@ class Upload extends Auth_Controller {
 		$this->_validate();
 
 		$logged_in_user = $this->ion_auth->user()->row();
-		$id_pengusul = $this->db->where('id', $id)->get('usulan')->id_pengusul;
+		$id_pengusul = $this->db->where('id', $id)->get('identitas')->id_pengusul;
 		
 		if ( ! $this->ion_auth->is_admin() 
 			&& $id_pengusul !== $logged_in_user->id)
@@ -93,20 +93,20 @@ class Upload extends Auth_Controller {
 			return show_404();
 		}
 
-		$usulan = $this->db->where('id', $id)->get('usulan')->row();
-		$usulan->dokumen = $this->db->where('id_usulan', $id)->get('dokumen')->row();
+		$identitas = $this->db->where('id', $id)->get('identitas')->row();
+		$identitas->dokumen = $this->db->where('id_usulan', $id)->get('dokumen')->row();
 
 		if ( ! $this->form_validation->run())
 		{
-			$data['usulan'] = $usulan;
-			$data['selected_jenis_program'] = set_value('jenis_program') ?: $usulan->jenis_program;
+			$data['identitas'] = $identitas;
+			$data['selected_jenis_program'] = set_value('jenis_program') ?: $identitas->jenis_program;
 
 			if ($this->ion_auth->is_admin())
 			{
-				$data['selected_standar'] = set_value('id_standar') ?: $usulan->id_standar;
+				$data['selected_standar'] = set_value('id_standar') ?: $identitas->id_standar;
 			}
 
-			return view('usulan-edit.tpl', $data);
+			return view('identitas-edit.tpl', $data);
 		}
 		else
 		{
@@ -126,7 +126,7 @@ class Upload extends Auth_Controller {
 			}
 
 			$this->db->update(
-				'usulan',
+				'identitas',
 				[
 					'id_standar'               => $id_standar,
 					'program_studi'            => "Pendidikan Luar Sekolah",
@@ -156,7 +156,7 @@ class Upload extends Auth_Controller {
 
 			if ($this->upload->do_upload('file'))
 			{
-				unlink(FCPATH . $usulan->dokumen->path);
+				unlink(FCPATH . $identitas->dokumen->path);
 
 				$dokumen_set['path'] = '/storage/dokumen/' . $this->upload->data('file_name');
 			}
@@ -164,15 +164,15 @@ class Upload extends Auth_Controller {
 			$this->db->update(
 				'dokumen',
 				$dokumen_set,
-				['id', $usulan->dokumen->id]
+				['id', $identitas->dokumen->id]
 			);
 
 			$this->session->set_flashdata('alert', [
 				'type' => 'success',
-				'message' => 'Usulan berhasil diperbarui'
+				'message' => 'Identitas berhasil diperbarui'
 			]);
 
-			return redirect('/usulan');
+			return redirect('/identitas');
 		}
 	}
 
@@ -196,7 +196,7 @@ class Upload extends Auth_Controller {
 			if (empty($_FILES['file']['name']))
 			{
 				$this->form_validation->set_rules('file', 'Dokumen', 'required');
-			}			
+			}
 		}
 
 		$this->form_validation->set_rules('nama', 'Nama Dokumen', 'required');

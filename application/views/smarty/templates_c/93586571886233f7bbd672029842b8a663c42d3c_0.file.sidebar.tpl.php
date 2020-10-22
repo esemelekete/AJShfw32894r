@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.36, created on 2020-10-22 07:51:50
+/* Smarty version 3.1.36, created on 2020-10-22 14:46:12
   from 'C:\Users\saari\Codes\repo\application\views\smarty\templates\components\sidebar.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.36',
-  'unifunc' => 'content_5f911df606a257_80447442',
+  'unifunc' => 'content_5f917f142460c9_38012702',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '93586571886233f7bbd672029842b8a663c42d3c' => 
     array (
       0 => 'C:\\Users\\saari\\Codes\\repo\\application\\views\\smarty\\templates\\components\\sidebar.tpl',
-      1 => 1603284683,
+      1 => 1603370771,
       2 => 'file',
     ),
   ),
@@ -20,9 +20,10 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_5f911df606a257_80447442 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5f917f142460c9_38012702 (Smarty_Internal_Template $_smarty_tpl) {
 $_smarty_tpl->_checkPlugins(array(0=>array('file'=>'C:\\Users\\saari\\Codes\\repo\\application\\views\\smarty\\plugins\\function.active_url.php','function'=>'smarty_function_active_url',),));
-?>
+$_smarty_tpl->_assignInScope('is_admin', $_smarty_tpl->tpl_vars['this']->value->ion_auth->is_admin());?>
+
 <ul class="navbar-nav sidebar sidebar-dark accordion" id="accordionSidebar">
 	<a class="sidebar-brand d-flex align-items-center justify-content-center" href="/">
 		<div class="sidebar-brand-icon">
@@ -44,22 +45,22 @@ $_smarty_tpl->_checkPlugins(array(0=>array('file'=>'C:\\Users\\saari\\Codes\\rep
 
 	<hr class="sidebar-divider">
 	<div class="sidebar-heading">
-		Akreditasi
-	</div>
-	<li class="nav-item <?php echo call_user_func_array( $_smarty_tpl->smarty->registered_plugins[Smarty::PLUGIN_FUNCTION]['active_url'][0], array( array('url'=>'usulan'),$_smarty_tpl ) );?>
-">
-		<a class="nav-link" href="/usulan">
-			<i class="far fa-fw fa-file-alt"></i>
-			<span>Usulan</span>
-		</a>
-	</li>
-	<hr class="sidebar-divider">
-	<div class="sidebar-heading">
 		Dokumen
 	</div>
-	<li class="nav-item <?php echo call_user_func_array( $_smarty_tpl->smarty->registered_plugins[Smarty::PLUGIN_FUNCTION]['active_url'][0], array( array('url'=>'upload'),$_smarty_tpl ) );?>
+	<li class="nav-item <?php echo call_user_func_array( $_smarty_tpl->smarty->registered_plugins[Smarty::PLUGIN_FUNCTION]['active_url'][0], array( array('url'=>'dokumen'),$_smarty_tpl ) );?>
 ">
-		<a class="nav-link" href="/upload">
+		<a class="nav-link" href="/dokumen">
+			<i class="far fa-fw fa-file-alt"></i>
+			<?php if ($_smarty_tpl->tpl_vars['is_admin']->value) {?>
+				<span>Daftar Dokumen</span>
+			<?php } else { ?>
+				<span>Dokumen Saya</span>
+			<?php }?>
+		</a>
+	</li>
+	<li class="nav-item <?php echo call_user_func_array( $_smarty_tpl->smarty->registered_plugins[Smarty::PLUGIN_FUNCTION]['active_url'][0], array( array('url'=>'dokumen/create'),$_smarty_tpl ) );?>
+">
+		<a class="nav-link" href="/dokumen/create">
 			<i class="fas fa-fw fa-upload"></i>
 			<span>Unggah</span>
 		</a>
@@ -70,11 +71,18 @@ $_smarty_tpl->_checkPlugins(array(0=>array('file'=>'C:\\Users\\saari\\Codes\\rep
 		<div class="sidebar-heading">
 			Manajemen
 		</div>
-		<li class="nav-item <?php echo call_user_func_array( $_smarty_tpl->smarty->registered_plugins[Smarty::PLUGIN_FUNCTION]['active_url'][0], array( array('url'=>'standar'),$_smarty_tpl ) );?>
+		<li class="nav-item <?php echo call_user_func_array( $_smarty_tpl->smarty->registered_plugins[Smarty::PLUGIN_FUNCTION]['active_url'][0], array( array('url'=>'ts'),$_smarty_tpl ) );?>
 ">
-			<a class="nav-link" href="/standar">
+			<a class="nav-link" href="/ts">
+				<i class="far fa-fw fa-calendar-alt"></i>
+				<span>TS</span>
+			</a>
+		</li>
+		<li class="nav-item <?php echo call_user_func_array( $_smarty_tpl->smarty->registered_plugins[Smarty::PLUGIN_FUNCTION]['active_url'][0], array( array('url'=>'kriteria'),$_smarty_tpl ) );?>
+">
+			<a class="nav-link" href="/kriteria">
 				<i class="fas fa-fw fa-list-ol"></i>
-				<span>Standar</span>
+				<span>Kriteria</span>
 			</a>
 		</li>
 		<li class="nav-item <?php echo call_user_func_array( $_smarty_tpl->smarty->registered_plugins[Smarty::PLUGIN_FUNCTION]['active_url'][0], array( array('url'=>'users'),$_smarty_tpl ) );?>

@@ -30,8 +30,8 @@ $lang['account_creation_duplicate_email']			= 'Email Sudah Digunakan atau Tidak 
 $lang['account_creation_duplicate_identity']	    = 'Identitas Sudah Digunakan atau Tidak Valid';
 
 // TODO Please Translate
-$lang['account_creation_missing_default_group']		= 'Standar grup tidak diatur';
-$lang['account_creation_invalid_default_group']		= 'Pengaturan Nama Grup Standar Tidak Valid';
+$lang['account_creation_missing_default_group']		= 'Kriteria grup tidak diatur';
+$lang['account_creation_invalid_default_group']		= 'Pengaturan Nama Grup Kriteria Tidak Valid';
 
 
 // Password

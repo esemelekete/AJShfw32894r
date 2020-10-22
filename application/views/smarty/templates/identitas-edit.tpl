@@ -41,7 +41,7 @@
 								<div class="col-md-3">
 									<div class="form-group">
 										<label for="peringkat_akreditasi">Peringkat Akreditasi</label>
-										<input type="text" name="peringkat_akreditasi" value="{set_value('peringkat_akreditasi')|default:xss_clean($usulan->peringkat_akreditasi)}" class="form-control {if form_error('peringkat_akreditasi')}is-invalid{/if}" placeholder="Contoh: A, B, C">
+										<input type="text" name="peringkat_akreditasi" value="{set_value('peringkat_akreditasi')|default:xss_clean($identitas->peringkat_akreditasi)}" class="form-control {if form_error('peringkat_akreditasi')}is-invalid{/if}" placeholder="Contoh: A, B, C">
 										{if form_error('peringkat_akreditasi')}
 											<small class="text-danger">
 												{form_error('peringkat_akreditasi')}
@@ -54,7 +54,7 @@
 								<div class="col-md-6">
 									<div class="form-group">
 										<label for="no_sk_ban_pt">No. SK BAN-PT</label>
-										<input type="text" name="no_sk_ban_pt" value="{set_value('no_sk_ban_pt')|default:xss_clean($usulan->no_sk_ban_pt)}" class="form-control {if form_error('no_sk_ban_pt')}is-invalid{/if}">
+										<input type="text" name="no_sk_ban_pt" value="{set_value('no_sk_ban_pt')|default:xss_clean($identitas->no_sk_ban_pt)}" class="form-control {if form_error('no_sk_ban_pt')}is-invalid{/if}">
 										{if form_error('no_sk_ban_pt')}
 											<small class="text-danger">
 												{form_error('no_sk_ban_pt')}
@@ -65,7 +65,7 @@
 								<div class="col-md-6">
 									<div class="form-group">
 										<label for="tgl_kadaluarsa_sk_ban_pt">Tanggal Kadaluarsa SK BAN-PT</label>
-										<input type="date" name="tgl_kadaluarsa_sk_ban_pt" value="{set_value('tgl_kadaluarsa_sk_ban_pt')|default:xss_clean($usulan->tgl_kadaluarsa_sk_ban_pt)}" class="form-control {if form_error('tgl_kadaluarsa_sk_ban_pt')}is-invalid{/if}">
+										<input type="date" name="tgl_kadaluarsa_sk_ban_pt" value="{set_value('tgl_kadaluarsa_sk_ban_pt')|default:xss_clean($identitas->tgl_kadaluarsa_sk_ban_pt)}" class="form-control {if form_error('tgl_kadaluarsa_sk_ban_pt')}is-invalid{/if}">
 										{if form_error('tgl_kadaluarsa_sk_ban_pt')}
 											<small class="text-danger">
 												{form_error('tgl_kadaluarsa_sk_ban_pt')}
@@ -78,7 +78,7 @@
 								<div class="col-md-6">
 									<div class="form-group">
 										<label for="unit_pengelola">Unit Pengelola</label>
-										<input type="text" name="unit_pengelola" value="{set_value('unit_pengelola')|default:xss_clean($usulan->unit_pengelola)}" class="form-control {if form_error('unit_pengelola')}is-invalid{/if}">
+										<input type="text" name="unit_pengelola" value="{set_value('unit_pengelola')|default:xss_clean($identitas->unit_pengelola)}" class="form-control {if form_error('unit_pengelola')}is-invalid{/if}">
 										{if form_error('unit_pengelola')}
 											<small class="text-danger">
 												{form_error('unit_pengelola')}
@@ -100,7 +100,7 @@
 							</div>
 							<div class="form-group">
 								<label for="alamat">Alamat</label>
-								<textarea name="alamat" class="form-control {if form_error('alamat')}is-invalid{/if}">{set_value('alamat')|default:xss_clean($usulan->alamat)}</textarea>
+								<textarea name="alamat" class="form-control {if form_error('alamat')}is-invalid{/if}">{set_value('alamat')|default:xss_clean($identitas->alamat)}</textarea>
 								{if form_error('alamat')}
 									<small class="text-danger">
 										{form_error('alamat')}
@@ -111,7 +111,7 @@
 								<div class="col-md-4">
 									<div class="form-group">
 										<label for="telepon">Telepon</label>
-										<input type="text" name="telepon" value="{set_value('telepon')|default:xss_clean($usulan->telepon)}" class="form-control {if form_error('telepon')}is-invalid{/if}">
+										<input type="text" name="telepon" value="{set_value('telepon')|default:xss_clean($identitas->telepon)}" class="form-control {if form_error('telepon')}is-invalid{/if}">
 										{if form_error('telepon')}
 											<small class="text-danger">
 												{form_error('telepon')}
@@ -122,7 +122,7 @@
 								<div class="col-md-4">
 									<div class="form-group">
 										<label for="email">Email</label>
-										<input type="text" name="email" value="{set_value('email')|default:xss_clean($usulan->email)}" class="form-control {if form_error('email')}is-invalid{/if}">
+										<input type="text" name="email" value="{set_value('email')|default:xss_clean($identitas->email)}" class="form-control {if form_error('email')}is-invalid{/if}">
 										{if form_error('email')}
 											<small class="text-danger">
 												{form_error('email')}
@@ -133,7 +133,7 @@
 								<div class="col-md-4">
 									<div class="form-group">
 										<label for="website">Website</label>
-										<input type="text" name="website" value="{set_value('website')|default:xss_clean($usulan->website)}" class="form-control {if form_error('website')}is-invalid{/if}">
+										<input type="text" name="website" value="{set_value('website')|default:xss_clean($identitas->website)}" class="form-control {if form_error('website')}is-invalid{/if}">
 										{if form_error('website')}
 											<small class="text-danger">
 												{form_error('website')}
@@ -145,9 +145,9 @@
 							<div class="form-group">
 								Tahun Ajaran
 								<div class="ts mt-2">
-									<input type="text" name="ts_1" value="{set_value('ts_1')|default:xss_clean($usulan->ts_1)}" class="form-control" style="display: inline-block!important; width: 80px!important">
+									<input type="text" name="ts_1" value="{set_value('ts_1')|default:xss_clean($identitas->ts_1)}" class="form-control" style="display: inline-block!important; width: 80px!important">
 									/
-									<input type="text" name="ts_2" value="{set_value('ts_2')|default:xss_clean($usulan->ts_2)}" class="form-control" style="display: inline-block!important; width: 80px!important">
+									<input type="text" name="ts_2" value="{set_value('ts_2')|default:xss_clean($identitas->ts_2)}" class="form-control" style="display: inline-block!important; width: 80px!important">
 									{if form_error('ts_1') || form_error('ts_2')}
 										<small class="text-danger">
 											{form_error('ts_1')}
@@ -160,14 +160,14 @@
 						<hr>
 						<fieldset>
 							<legend class="text-primary">
-								<strong>Dokumen Standar</strong>
+								<strong>Dokumen Kriteria</strong>
 							</legend>
 							<div class="form-group">
-								<label for="id_standar">Standar</label>
+								<label for="id_standar">Kriteria</label>
 								{if $this->ion_auth->in_group('admin')}
-									{assign var="standar" value=$this->db->get('standar')->result()}
+									{assign var="kriteria" value=$this->db->get('kriteria')->result()}
 									<select name="id_standar" id="id_standar" class="form-control">
-										{foreach $standar as $s}
+										{foreach $kriteria as $s}
 											<option
 												value="{$s->id}"
 												{if $selected_standar == $s->id}selected{/if}
@@ -183,14 +183,14 @@
 									{/if}
 								{else}
 									<div>
-										{$this->db->where('id', $this->ion_auth->user()->row()->id_standar)->get('standar')->row()->nama}
+										{$this->db->where('id', $this->ion_auth->user()->row()->id_standar)->get('kriteria')->row()->nama}
 									</div>
 								{/if}
 							</div>
 							<div class="form-group">
 								<label for="file">Dokumen lama</label>
 								<div>
-									<a href="{$usulan->dokumen->path}" class="btn btn-primary">
+									<a href="{$identitas->dokumen->path}" class="btn btn-primary">
 										Unduh
 									</a>
 								</div>
@@ -209,7 +209,7 @@
 							</div>
 							<div class="form-group">
 								<label for="nama">Nama Dokumen</label>
-								<input type="text" name="nama" value="{set_value('nama')|default:xss_clean($usulan->dokumen->nama)}" class="form-control {if form_error('nama')}is-invalid{/if}">
+								<input type="text" name="nama" value="{set_value('nama')|default:xss_clean($identitas->dokumen->nama)}" class="form-control {if form_error('nama')}is-invalid{/if}">
 								{if form_error('nama')}
 									<small class="text-danger">
 										{form_error('nama')}
@@ -218,7 +218,7 @@
 							</div>
 							<div class="form-group">
 								<label for="deskripsi">Deskripsi</label>
-								<textarea name="deskripsi" class="form-control {if form_error('deskripsi')}is-invalid{/if}">{set_value('deskripsi')|default:xss_clean($usulan->dokumen->deskripsi)}</textarea>
+								<textarea name="deskripsi" class="form-control {if form_error('deskripsi')}is-invalid{/if}">{set_value('deskripsi')|default:xss_clean($identitas->dokumen->deskripsi)}</textarea>
 								{if form_error('deskripsi')}
 									<small class="text-danger">
 										{form_error('deskripsi')}
@@ -227,7 +227,7 @@
 							</div>
 							<div class="form-group">
 								<label for="lokasi">Lokasi</label>
-								<input type="text" name="lokasi" value="{set_value('lokasi')|default:xss_clean($usulan->dokumen->lokasi)}" class="form-control {if form_error('lokasi')}is-invalid{/if}">
+								<input type="text" name="lokasi" value="{set_value('lokasi')|default:xss_clean($identitas->dokumen->lokasi)}" class="form-control {if form_error('lokasi')}is-invalid{/if}">
 								{if form_error('lokasi')}
 									<small class="text-danger">
 										{form_error('lokasi')}
@@ -236,7 +236,7 @@
 							</div>
 							<div class="form-group">
 								<label for="rak">Rak</label>
-								<input type="text" name="rak" value="{set_value('rak')|default:xss_clean($usulan->dokumen->rak)}" class="form-control {if form_error('rak')}is-invalid{/if}">
+								<input type="text" name="rak" value="{set_value('rak')|default:xss_clean($identitas->dokumen->rak)}" class="form-control {if form_error('rak')}is-invalid{/if}">
 								{if form_error('rak')}
 									<small class="text-danger">
 										{form_error('rak')}
@@ -245,7 +245,7 @@
 							</div>
 							<div class="form-group">
 								<label for="koordinator">Koordinator</label>
-								<input type="text" name="koordinator" value="{set_value('koordinator')|default:xss_clean($usulan->dokumen->koordinator)}" class="form-control {if form_error('koordinator')}is-invalid{/if}">
+								<input type="text" name="koordinator" value="{set_value('koordinator')|default:xss_clean($identitas->dokumen->koordinator)}" class="form-control {if form_error('koordinator')}is-invalid{/if}">
 								{if form_error('koordinator')}
 									<small class="text-danger">
 										{form_error('koordinator')}

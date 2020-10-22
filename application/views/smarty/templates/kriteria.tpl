@@ -1,6 +1,6 @@
 {extends file="layouts/dashboard.tpl"}
 
-{assign var="title" value="Manajemen Standar"}
+{assign var="title" value="Manajemen Kriteria"}
 
 {block name=admin_content}
 	<div class="row">
@@ -8,7 +8,7 @@
 			<div class="card shadow mb-4">
 				<div class="card-header py-3">
 					<h6 class="m-0 font-weight-bold">
-						Semua Standar
+						Semua Kriteria
 					</h6>
 				</div>
 				<div class="card-body">
@@ -22,12 +22,12 @@
 								</tr>
 							</thead>
 							<tbody>
-								{foreach $standar as $s}									
+								{foreach $kriteria as $s}									
 									<tr>
 										<td>{$s->id}</td>
 										<td>{$s->nama}</td>
 										<td class="text-center">
-											{form_open('/standar/edit/'|cat:$s->id, 'onsubmit="onEdit(event)"')}
+											{form_open('/kriteria/edit/'|cat:$s->id, 'onsubmit="onEdit(event)"')}
 												<input type="hidden" name="nama">
 												<button data-nama="{$s->nama}" type="submit" class="btn btn-sm btn-primary">
 													<i class="fas fa-pencil-alt"></i>
@@ -53,7 +53,7 @@
 
 			$input.value = $button.dataset.nama
 
-			if ($input.value = prompt("Ubah nama standar", $input.value))
+			if ($input.value = prompt("Ubah nama kriteria", $input.value))
 			{
 				$form.submit()
 			}

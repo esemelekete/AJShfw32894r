@@ -1,3 +1,5 @@
+{assign var="is_admin" value=$this->ion_auth->is_admin()}
+
 <ul class="navbar-nav sidebar sidebar-dark accordion" id="accordionSidebar">
 	<a class="sidebar-brand d-flex align-items-center justify-content-center" href="/">
 		<div class="sidebar-brand-icon">
@@ -18,20 +20,20 @@
 
 	<hr class="sidebar-divider">
 	<div class="sidebar-heading">
-		Akreditasi
-	</div>
-	<li class="nav-item {active_url url='usulan'}">
-		<a class="nav-link" href="/usulan">
-			<i class="far fa-fw fa-file-alt"></i>
-			<span>Usulan</span>
-		</a>
-	</li>
-	<hr class="sidebar-divider">
-	<div class="sidebar-heading">
 		Dokumen
 	</div>
-	<li class="nav-item {active_url url='upload'}">
-		<a class="nav-link" href="/upload">
+	<li class="nav-item {active_url url='dokumen'}">
+		<a class="nav-link" href="/dokumen">
+			<i class="far fa-fw fa-file-alt"></i>
+			{if $is_admin}
+				<span>Daftar Dokumen</span>
+			{else}
+				<span>Dokumen Saya</span>
+			{/if}
+		</a>
+	</li>
+	<li class="nav-item {active_url url='dokumen/create'}">
+		<a class="nav-link" href="/dokumen/create">
 			<i class="fas fa-fw fa-upload"></i>
 			<span>Unggah</span>
 		</a>
@@ -42,10 +44,16 @@
 		<div class="sidebar-heading">
 			Manajemen
 		</div>
-		<li class="nav-item {active_url url='standar'}">
-			<a class="nav-link" href="/standar">
+		<li class="nav-item {active_url url='ts'}">
+			<a class="nav-link" href="/ts">
+				<i class="far fa-fw fa-calendar-alt"></i>
+				<span>TS</span>
+			</a>
+		</li>
+		<li class="nav-item {active_url url='kriteria'}">
+			<a class="nav-link" href="/kriteria">
 				<i class="fas fa-fw fa-list-ol"></i>
-				<span>Standar</span>
+				<span>Kriteria</span>
 			</a>
 		</li>
 		<li class="nav-item {active_url url='users'}">

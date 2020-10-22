@@ -160,14 +160,14 @@
 						<hr>
 						<fieldset>
 							<legend class="text-primary">
-								<strong>Dokumen Standar</strong>
+								<strong>Dokumen Kriteria</strong>
 							</legend>
 							<div class="form-group">
-								<label for="id_standar">Standar</label>
+								<label for="id_standar">Kriteria</label>
 								{if $this->ion_auth->in_group('admin')}
-									{assign var="standar" value=$this->db->get('standar')->result()}
+									{assign var="kriteria" value=$this->db->get('kriteria')->result()}
 									<select name="id_standar" id="id_standar" class="form-control">
-										{foreach $standar as $s}
+										{foreach $kriteria as $s}
 											<option
 												value="{$s->id}"
 												{if set_value('id_standar') == $s->id}selected{/if}
@@ -183,7 +183,7 @@
 									{/if}
 								{else}
 									<div class="text-body">
-										{$this->db->where('id', $this->ion_auth->user()->row()->id_standar)->get('standar')->row()->nama}
+										{$this->db->where('id', $this->ion_auth->user()->row()->id_standar)->get('kriteria')->row()->nama}
 									</div>
 								{/if}
 							</div>

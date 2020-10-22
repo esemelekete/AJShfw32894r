@@ -155,18 +155,18 @@ $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
 							</div>
 							<div class="col-md-12">
 								<div class="form-group">
-									<label for="id_standar">Standar</label>
+									<label for="id_standar">Kriteria</label>
 									<select name="id_standar" id="id_standar" class="form-control <?php if (form_error('password_confirm')) {?>is-invalid<?php }?>">
-										<option value="" <?php if (empty(set_value('group'))) {?>selected<?php }?> disabled>Pilih standar</option>
+										<option value="" <?php if (empty(set_value('group'))) {?>selected<?php }?> disabled>Pilih kriteria</option>
 										<?php
-$_from = $_smarty_tpl->smarty->ext->_foreach->init($_smarty_tpl, $_smarty_tpl->tpl_vars['this']->value->db->get('standar')->result(), 'standar');
-$_smarty_tpl->tpl_vars['standar']->do_else = true;
-if ($_from !== null) foreach ($_from as $_smarty_tpl->tpl_vars['standar']->value) {
-$_smarty_tpl->tpl_vars['standar']->do_else = false;
+$_from = $_smarty_tpl->smarty->ext->_foreach->init($_smarty_tpl, $_smarty_tpl->tpl_vars['this']->value->db->get('kriteria')->result(), 'kriteria');
+$_smarty_tpl->tpl_vars['kriteria']->do_else = true;
+if ($_from !== null) foreach ($_from as $_smarty_tpl->tpl_vars['kriteria']->value) {
+$_smarty_tpl->tpl_vars['kriteria']->do_else = false;
 ?>
-											<option value="<?php echo $_smarty_tpl->tpl_vars['standar']->value->id;?>
+											<option value="<?php echo $_smarty_tpl->tpl_vars['kriteria']->value->id;?>
 ">
-												<?php echo $_smarty_tpl->tpl_vars['standar']->value->nama;?>
+												<?php echo $_smarty_tpl->tpl_vars['kriteria']->value->nama;?>
 
 											</option>
 										<?php

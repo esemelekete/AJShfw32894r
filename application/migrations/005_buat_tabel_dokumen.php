@@ -10,25 +10,27 @@ class Migration_Buat_tabel_dokumen extends CI_Migration {
 		// Table structure for table 'dokumen'
 		$this->db->query('CREATE TABLE IF NOT EXISTS dokumen(
 			`id` BIGINT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
-			`id_usulan` BIGINT UNSIGNED NOT NULL,
+			`id_kriteria` BIGINT UNSIGNED NOT NULL,
+			`id_ts` BIGINT UNSIGNED NOT NULL,
+			`id_user` MEDIUMINT(8) UNSIGNED NOT NULL,
 			`nama` VARCHAR(255) NOT NULL,
 			`deskripsi` TEXT,
 			`path` VARCHAR(255) NOT NULL,
-			`lokasi` VARCHAR(255) NOT NULL,
-			`rak` VARCHAR(255) NOT NULL,
-			`koordinator` VARCHAR(255) NOT NULL,
-			FOREIGN KEY (id_usulan) REFERENCES usulan(id)
+			`updated_at` TIMESTAMP DEFAULT CURRENT_TIMESTAMP() ON UPDATE CURRENT_TIMESTAMP(),
+			`created_at` TIMESTAMP DEFAULT CURRENT_TIMESTAMP(),
+			FOREIGN KEY (id_kriteria) REFERENCES kriteria(id),
+			FOREIGN KEY (id_ts) REFERENCES ts(id),
+			FOREIGN KEY (id_user) REFERENCES users(id)
 		)');
 
 		// Dumping data for table 'dokumen'
 		$data = [
-			'id_usulan' => '1',
+			'id_ts' => 1,
+			'id_kriteria' => 1,
+			'id_user' => 1,
 			'nama' => 'Dokumen blablabla',
 			'deskripsi' => 'ini deskripsinya',
 			'path' => 'storage/dokumen/test.txt',
-			'lokasi' => 'di ruangan',
-			'rak' => 'TIK 2',
-			'koordinator' => 'Udin Sanjaya',
 		];
 		$this->db->insert('dokumen', $data);
 	}

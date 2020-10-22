@@ -29,7 +29,7 @@ class Migration_Install_ion_auth extends CI_Migration {
 			],
 			[
 				'name'        => 'generic',
-				'description' => 'Pengampu Standar'
+				'description' => 'Pengampu Kriteria'
 			]
 		];
 		$this->db->insert_batch($this->tables['groups'], $data);
@@ -56,8 +56,8 @@ class Migration_Install_ion_auth extends CI_Migration {
 				`last_name` VARCHAR(50),
 				`company` VARCHAR(100),
 				`phone` VARCHAR(20),
-				`id_standar` BIGINT UNSIGNED NOT NULL,
-				FOREIGN KEY (id_standar) REFERENCES standar(id)
+				`id_kriteria` BIGINT UNSIGNED NOT NULL,
+				FOREIGN KEY (id_kriteria) REFERENCES kriteria(id)
 			)'
 		);
 
@@ -77,7 +77,7 @@ class Migration_Install_ion_auth extends CI_Migration {
 				'last_name'               => 'istrator',
 				'company'                 => 'ADMIN',
 				'phone'                   => '0',
-				'id_standar'              => 1
+				'id_kriteria'              => 1
 			],
 			[
 				'ip_address'              => '127.0.0.1',
@@ -93,7 +93,7 @@ class Migration_Install_ion_auth extends CI_Migration {
 				'last_name'               => 'Satu',
 				'company'                 => 'Hehey',
 				'phone'                   => '0',
-				'id_standar'              => 4
+				'id_kriteria'              => 4
 			]
 		];
 		$this->db->insert_batch($this->tables['users'], $data);

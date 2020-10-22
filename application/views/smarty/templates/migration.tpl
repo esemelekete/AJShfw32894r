@@ -13,6 +13,18 @@
 		<button type="submit">Migrate</button>
 	{form_close()}
 
+	<br>
+
+	{form_open(NULL, 'onsubmit="return onSubmit(this)" style="display:inline"')}
+		<input type="hidden" name="version" value="0">
+		<button type="submit">Clear data</button>
+	{form_close()}
+
+	{form_open(NULL, 'onsubmit="return onSubmit(this)" style="display:inline"')}
+		<input type="hidden" name="version" value="{$version['number']}">
+		<button type="submit">Migrate to latest</button>
+	{form_close()}
+
 	<script>
 		function onSubmit(e) {
 			if ( ! confirm('Are you sure to migrate?')) {

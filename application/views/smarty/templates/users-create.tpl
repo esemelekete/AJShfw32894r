@@ -92,12 +92,12 @@
 							</div>
 							<div class="col-md-12">
 								<div class="form-group">
-									<label for="id_standar">Standar</label>
+									<label for="id_standar">Kriteria</label>
 									<select name="id_standar" id="id_standar" class="form-control {if form_error('password_confirm')}is-invalid{/if}">
-										<option value="" {if empty(set_value('group'))}selected{/if} disabled>Pilih standar</option>
-										{foreach from=$this->db->get('standar')->result() item=$standar}
-											<option value="{$standar->id}" {if set_value('id_standar') === $standar->id}selected{/if}>
-												{$standar->nama}
+										<option value="" {if empty(set_value('group'))}selected{/if} disabled>Pilih kriteria</option>
+										{foreach from=$this->db->get('kriteria')->result() item=$kriteria}
+											<option value="{$kriteria->id}" {if set_value('id_standar') === $kriteria->id}selected{/if}>
+												{$kriteria->nama}
 											</option>
 										{/foreach}
 									</select>

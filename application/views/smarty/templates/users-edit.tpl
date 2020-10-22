@@ -92,17 +92,17 @@
 							</div>
 							<div class="col-md-12">
 								<div class="form-group">
-									<label for="id_standar">Standar</label>
-									<select name="id_standar" id="id_standar" class="form-control {if form_error('id_standar')}is-invalid{/if}">
-										<option value="" {if empty(set_value('group'))}selected{/if} disabled>Pilih standar</option>
-										{foreach from=$this->db->get('standar')->result() item=$standar}
-											<option value="{$standar->id}" {if $selected_standar === $standar->id}selected{/if}>
-												{$standar->nama}
+									<label for="id_kriteria">Kriteria</label>
+									<select name="id_kriteria" id="id_kriteria" class="form-control {if form_error('id_kriteria')}is-invalid{/if}">
+										<option value="" {if empty(set_value('group'))}selected{/if} disabled>Pilih kriteria</option>
+										{foreach from=$this->db->get('kriteria')->result() item=$kriteria}
+											<option value="{$kriteria->id}" {if $selected_kriteria === $kriteria->id}selected{/if}>
+												{$kriteria->nama}
 											</option>
 										{/foreach}
 									</select>
-									{if form_error('id_standar')}
-										<small class="text-danger">{form_error('id_standar')}</small>
+									{if form_error('id_kriteria')}
+										<small class="text-danger">{form_error('id_kriteria')}</small>
 									{/if}
 								</div>
 							</div>
