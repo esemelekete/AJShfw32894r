@@ -44,9 +44,9 @@
 									</button>
 								{form_close()}
 
-								<div class="text-center mt-3">
+								{* <div class="text-center mt-3">
 									<a class="small" href="/forgot-password.html">Lupa Password?</a>
-								</div>
+								</div> *}
 							</div>
 						</div>
 					</div>
