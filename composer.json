@@ -1,0 +1,16 @@
+{
+    "name": "kangzoel/fireplace",
+    "description": "CodeIgniter 3.1-stable Starter Project",
+    "type": "project",
+    "homepage": "https://example.com",
+    "license": "MIT",
+    "authors": [{
+        "name": "Samsul Arif Zulvian",
+        "email": "saarizu@gmail.com"
+    }],
+    "require": {
+        "php": ">=5.6.30",
+        "vlucas/phpdotenv": "2.0.1",
+        "smarty/smarty": "^3.1"
+    }
+}
