@@ -13,7 +13,7 @@
 								<div class="text-center">
 									<h1 class="h4 text-gray-900 mb-4">
 										Repositori Akreditasi <br>
-										<small>Fakultas Keguruan dan Ilmu Pengetahuan</small>
+										<small>Program Studi Pendidikan Luar Sekolah</small>
 									</h1>
 								</div>
 								{form_open(NULL, 'class="user"')}
