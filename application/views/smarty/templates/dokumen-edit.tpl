@@ -46,7 +46,7 @@
 									{/if}
 								</div>
 								<div class="form-group">
-									<label for="file">Dokumen Baru</label>
+									<label for="file_lama">Dokumen Lama</label>
 									<div>
 										<a href="{$dokumen->path}" class="btn btn-sm btn-dark">Unduh</a>
 									</div>
